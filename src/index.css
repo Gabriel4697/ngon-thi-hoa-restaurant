@@ -1,0 +1,245 @@
+/*
+  TEMPLATE STYLES: These styles are used as a base template.
+  AI is allowed to modify these styles as needed.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Dancing+Script:wght@400..700&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..600&family=Special+Elite&family=Courier+Prime:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'UTM Thu Phap Thien An';
+  src: url('/fonts/UTM-ThuPhapThienAn.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+  overflow-x: clip;
+  color: #4a4a4a;
+}
+
+h1, h2 {
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.3;
+  overflow-wrap: break-word;
+}
+
+p, li { line-height: 1.7; }
+
+/* Section titles only - use UTM */
+.font-section-title,
+.font-display,
+.font-utm {
+  font-family: "UTM Thu Phap Thien An", "Playfair Display", serif;
+  /* Calligraphy glyphs have tall ascenders/descenders: give them room */
+  line-height: 1.7 !important;
+  letter-spacing: 0.02em;
+  padding-block: 0.28em;
+  margin-top: 0.15em;
+  word-break: normal;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+  position: relative;
+  z-index: 0;
+}
+
+/* Decorative label above UTM section titles — uses Courier Prime so it's crisp above calligraphy */
+.font-script {
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  /* Keep the Courier label small and consistent everywhere, above the calligraphy */
+  font-size: clamp(0.75rem, 1.4vw, 0.95rem);
+  margin: 0 0 0.9rem;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+/* Extra breathing room whenever a Courier label sits directly above a UTM heading */
+.font-script + .font-section-title,
+.font-script + .font-display,
+.font-script + .font-utm {
+  margin-top: 0.5rem;
+}
+
+/* Typewriter/Courier for body and buttons */
+.font-typewriter {
+  font-family: "Courier Prime", "Courier New", Courier, monospace;
+  letter-spacing: 0.01em;
+  line-height: 1.65;
+}
+
+/* Keep calligraphy headings readable at large sizes */
+.font-section-title { display: inline-block; max-width: 100%; }
+
+@media (max-width: 767px) {
+  .font-section-title,
+  .font-display,
+  .font-utm {
+    line-height: 1.6 !important;
+    letter-spacing: 0.01em;
+    padding-block: 0.22em;
+  }
+  .font-script { margin-bottom: 0.7rem; }
+  /* Prevent oversized calligraphy headings from colliding on small screens */
+  .font-section-title.text-6xl, .font-display.text-6xl { font-size: 2.25rem; }
+  .font-section-title.text-7xl, .font-display.text-7xl { font-size: 2.6rem; }
+  .font-section-title.text-8xl, .font-display.text-8xl { font-size: 3rem; }
+}
+
+/* Brand colors */
+:root {
+  --brand-brown: #5e4743;
+  --brand-gold: #ffc952;
+  --brand-brown-dark: #3d2e2b;
+  --brand-gold-light: #ffe4a0;
+}
+
+/* Brand decorative corner brackets */
+.brand-corner {
+  position: relative;
+}
+.brand-corner::before, .brand-corner::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--brand-gold);
+  border-style: solid;
+  pointer-events: none;
+}
+.brand-corner::before {
+  top: 0; left: 0;
+  border-width: 2px 0 0 2px;
+}
+.brand-corner::after {
+  bottom: 0; right: 0;
+  border-width: 0 2px 2px 0;
+}
+
+/* Brush stroke separator */
+.brush-divider {
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, var(--brand-gold) 20%, var(--brand-gold) 80%, transparent 100%);
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+/* Vietnamese pattern background */
+.vn-pattern-bg {
+  background-color: #faf6ef;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%235e4743' fill-opacity='0.05'%3E%3Cpath d='M30 0l4 12h12l-10 7 4 12-10-7-10 7 4-12-10-7h12zM0 30l4 12h12l-10 7 4 12-10-7-10 7 4-12-10-7h12zM60 30l4 12h12l-10 7 4 12-10-7-10 7 4-12-10-7h12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.pattern-bg {
+  background-color: #f2f2f2;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M20 0l5 15h15l-12 9 5 15-13-9-13 9 5-15-12-9h15z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hov-zoom img { transition: transform 0.6s ease; }
+.hov-zoom:hover img { transform: scale(1.08); }
+
+/* Performance: hint browser for off-screen content */
+.menu-section-offscreen {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 800px;
+}
+
+/* Image quality: high-quality downscaling for photos */
+img {
+  image-rendering: auto;
+  -ms-interpolation-mode: bicubic;
+}
+
+/* Menu images: prevent layout shift with aspect-ratio containers */
+.menu-img-container {
+  position: relative;
+  overflow: hidden;
+  background: rgba(62,46,43,0.25);
+}
+
+/* Smooth fade-in for lazy images (never hide them: images stay visible
+   even if the load handler doesn't fire, e.g. cached images) */
+img[loading="lazy"] {
+  opacity: 1;
+  transition: opacity 0.35s ease;
+}
+img[loading="lazy"].is-loading {
+  opacity: 0;
+}
+
+/*
+  ---break---
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
