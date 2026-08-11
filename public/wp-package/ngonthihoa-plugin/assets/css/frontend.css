@@ -1,0 +1,133 @@
+/* Ngon Thi Hoa - Frontend Form Styles */
+
+:root {
+    --nth-brown: #5e4743;
+    --nth-gold: #ffc952;
+    --nth-brown-dark: #3d2e2b;
+}
+
+/* ── Form wrap ────────────────────────────────────────────────────────────── */
+.nth-form-wrap { max-width: 640px; margin: 0 auto; }
+
+.nth-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+.nth-form-field-full { grid-column: 1 / -1; }
+
+.nth-form-field { display: flex; flex-direction: column; gap: 6px; }
+.nth-form-field label { font-size: 13px; font-weight: 600; color: #3d2e2b; }
+.nth-form-field input,
+.nth-form-field select,
+.nth-form-field textarea {
+    border: 1px solid #d1c4c2;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 14px;
+    font-family: "Courier Prime", Courier, monospace;
+    transition: border-color .2s, box-shadow .2s;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+}
+.nth-form-field input:focus,
+.nth-form-field select:focus,
+.nth-form-field textarea:focus {
+    outline: none;
+    border-color: var(--nth-brown);
+    box-shadow: 0 0 0 3px rgba(94,71,67,.12);
+}
+
+/* ── Submit button ────────────────────────────────────────────────────────── */
+.nth-form-submit { margin-top: 20px; }
+
+.nth-btn {
+    display: inline-block;
+    padding: 12px 32px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Courier Prime", Courier, monospace;
+    letter-spacing: .04em;
+    cursor: pointer;
+    border: none;
+    transition: background .2s, transform .15s;
+}
+.nth-btn:active { transform: scale(.98); }
+
+.nth-btn-primary {
+    background: var(--nth-brown);
+    color: #fff;
+}
+.nth-btn-primary:hover { background: var(--nth-brown-dark); }
+
+.nth-btn-secondary {
+    background: transparent;
+    color: var(--nth-brown);
+    border: 2px solid var(--nth-brown);
+}
+.nth-btn-secondary:hover { background: var(--nth-brown); color: #fff; }
+
+/* ── Form messages ────────────────────────────────────────────────────────── */
+.nth-form-message {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+.nth-form-message.nth-success { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+.nth-form-message.nth-error   { background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
+
+/* ── Menu Grid ────────────────────────────────────────────────────────────── */
+.nth-menu-grid {
+    display: grid;
+    gap: 24px;
+}
+.nth-cols-2 { grid-template-columns: repeat(2,1fr); }
+.nth-cols-3 { grid-template-columns: repeat(3,1fr); }
+.nth-cols-4 { grid-template-columns: repeat(4,1fr); }
+
+.nth-menu-item {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+    transition: box-shadow .2s;
+}
+.nth-menu-item:hover { box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+
+.nth-menu-item-img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+.nth-menu-item-info { padding: 14px 16px; }
+.nth-menu-item-name { font-size: 15px; font-weight: 700; color: #3d2e2b; margin: 0 0 6px; }
+.nth-menu-item-price { font-size: 16px; font-weight: 700; color: var(--nth-brown); margin-bottom: 6px; }
+.nth-menu-item-desc { font-size: 13px; color: #666; margin: 0; line-height: 1.5; }
+
+/* ── Language Switcher ────────────────────────────────────────────────────── */
+.nth-language-switcher { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.nth-lang-btn {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 14px;
+    border: 1px solid #d1c4c2;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background .15s, border-color .15s;
+}
+.nth-lang-btn:hover { background: #faf6ef; border-color: var(--nth-brown); }
+.nth-lang-btn.nth-lang-active { background: var(--nth-brown); color: #fff; border-color: var(--nth-brown); }
+
+/* ── Map wrap ─────────────────────────────────────────────────────────────── */
+.nth-map-wrap { border-radius: 10px; overflow: hidden; }
+.nth-map-wrap iframe { display: block; }
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .nth-form-grid { grid-template-columns: 1fr; }
+    .nth-cols-2, .nth-cols-3, .nth-cols-4 { grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 480px) {
+    .nth-cols-2, .nth-cols-3, .nth-cols-4 { grid-template-columns: 1fr; }
+}
